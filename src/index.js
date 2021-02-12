@@ -161,7 +161,7 @@ export default function wrap (Vue, Component) {
         ))
         wrapper.$mount()
         // this.shadowRoot.appendChild(wrapper.$el)
-        this.appendChild(wrapper.$el);
+        this.appendChild(wrapper.$el)
       } else {
         callHooks(this.vueComponent, 'activated')
       }
