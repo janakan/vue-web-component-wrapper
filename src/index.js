@@ -81,12 +81,12 @@ export default function wrap (Vue, Component) {
   class CustomElement extends HTMLElement {
     constructor () {
       const self = super()
-      self.attachShadow({ mode: 'open' })
+      // self.attachShadow({ mode: 'open' })
 
       const wrapper = self._wrapper = new Vue({
         name: 'shadow-root',
         customElement: self,
-        shadowRoot: self.shadowRoot,
+        // shadowRoot: self.shadowRoot,
         data () {
           return {
             props: {},
@@ -160,7 +160,8 @@ export default function wrap (Vue, Component) {
           this.childNodes
         ))
         wrapper.$mount()
-        this.shadowRoot.appendChild(wrapper.$el)
+        // this.shadowRoot.appendChild(wrapper.$el)
+        this.appendChild(wrapper.$el);
       } else {
         callHooks(this.vueComponent, 'activated')
       }
